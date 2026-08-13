@@ -1,0 +1,43 @@
+server:
+  address: localhost
+  port: 8080
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: LifeSync-Habit-Wellness-Tracker
+  
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:h2:mem:lifesync_db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MODE=MySQL}
+    username: ${SPRING_DATASOURCE_USERNAME:sa}
+    password: ${SPRING_DATASOURCE_PASSWORD:}
+    driver-class-name: ${SPRING_DATASOURCE_DRIVER:org.h2.Driver}
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings:
+        web-allow-others: true
+
+  jpa:
+    database-platform: ${SPRING_JPA_DATABASE_PLATFORM:org.hibernate.dialect.H2Dialect}
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:schema.sql
+      data-locations: classpath:data.sql
+
+lifesync:
+  jwt:
+    secret: 9a2f8c4e1b7d3a5e8f0c2b4a6e8d1f3c5b7a9e1d3c5b7a9e1d3c5b7a9e1d3c5b
+    expiration-ms: 86400000 # 24 hours
+    refresh-expiration-ms: 604800000 # 7 days

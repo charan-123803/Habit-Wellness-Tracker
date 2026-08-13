@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Habit Management | LifeSync</title>
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <nav class="navbar navbar-expand-lg lifesync-nav py-2">
+    <div class="container-fluid px-4">
+      <a class="navbar-brand nav-brand-logo d-flex align-items-center gap-2" href="dashboard.html">
+        <i class="fas fa-heart-pulse text-danger"></i> LifeSync
+      </a>
+      <div class="d-flex align-items-center gap-3 ms-auto">
+        <button class="btn btn-sm theme-toggle-btn p-2"><i class="fas fa-moon"></i></button>
+        <span class="user-name-text fw-semibold">John Doe</span>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid px-4 py-4">
+    <div class="row g-4">
+      
+      <!-- Sidebar -->
+      <div class="col-lg-2">
+        <div class="glass-card p-3 sticky-top" style="top: 80px;">
+          <div class="nav flex-column nav-pills gap-1">
+            <a class="nav-link" href="dashboard.html"><i class="fas fa-th-large me-2"></i> Dashboard</a>
+            <a class="nav-link active" href="habits.html"><i class="fas fa-check-circle me-2"></i> Habits</a>
+            <a class="nav-link" href="wellness.html"><i class="fas fa-heartbeat me-2"></i> Wellness</a>
+            <a class="nav-link" href="sleep.html"><i class="fas fa-moon me-2"></i> Sleep</a>
+            <a class="nav-link" href="exercise.html"><i class="fas fa-running me-2"></i> Exercise</a>
+            <a class="nav-link" href="meals.html"><i class="fas fa-utensils me-2"></i> Meals</a>
+            <a class="nav-link" href="mood.html"><i class="fas fa-smile me-2"></i> Mood</a>
+            <a class="nav-link" href="goals.html"><i class="fas fa-bullseye me-2"></i> Goals</a>
+            <a class="nav-link" href="reports.html"><i class="fas fa-file-alt me-2"></i> Reports</a>
+            <a class="nav-link" href="calendar.html"><i class="fas fa-calendar-alt me-2"></i> Calendar</a>
+            <a class="nav-link" href="community.html"><i class="fas fa-users me-2"></i> Community</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="col-lg-10">
+        
+        <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-3">
+          <div>
+            <h3 class="fw-bold mb-1">Habit Manager</h3>
+            <p class="text-muted mb-0">Build positive consistency and track daily streaks.</p>
+          </div>
+          <button class="btn btn-primary-custom" data-bs-toggle="modal" data-bs-target="#habitModal" onclick="openCreateModal()">
+            <i class="fas fa-plus me-2"></i> Add New Habit
+          </button>
+        </div>
+
+        <!-- Filter & Search Bar -->
+        <div class="glass-card p-3 mb-4">
+          <div class="row g-3">
+            <div class="col-md-5">
+              <div class="input-group">
+                <span class="input-group-text bg-body-tertiary"><i class="fas fa-search"></i></span>
+                <input type="text" id="habitSearch" class="form-control" placeholder="Search habit by name..." oninput="filterHabits()">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <select id="categoryFilter" class="form-select" onchange="filterHabits()">
+                <option value="ALL">All Categories</option>
+                <option value="Fitness">Fitness</option>
+                <option value="Coding">Coding</option>
+                <option value="Reading">Reading</option>
+                <option value="Gym">Gym</option>
+                <option value="Meditation">Meditation</option>
+                <option value="Water">Water</option>
+                <option value="Sleep">Sleep</option>
+              </select>
+            </div>
+            <div class="col-md-2">
+              <select id="priorityFilter" class="form-select" onchange="filterHabits()">
+                <option value="ALL">All Priorities</option>
+                <option value="HIGH">High</option>
+                <option value="MEDIUM">Medium</option>
+                <option value="LOW">Low</option>
+              </select>
+            </div>
+            <div class="col-md-2">
+              <select id="sortFilter" class="form-select" onchange="filterHabits()">
+                <option value="streak">Sort by Streak</option>
+                <option value="name">Sort by Name</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Habits List Grid -->
+        <div id="habitsContainer" class="row g-3">
+          <!-- Dynamic rendering from JS -->
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Add/Edit Habit Modal -->
+  <div class="modal fade" id="habitModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content glass-card border-0">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold" id="modalTitle">Add New Habit</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form id="habitForm" onsubmit="saveHabit(event)">
+            <input type="hidden" id="habitId">
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Habit Title</label>
+              <input type="text" id="habitTitle" class="form-control" placeholder="e.g. Drink 2L Water" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Category</label>
+              <select id="habitCategory" class="form-select">
+                <option value="Fitness">Fitness</option>
+                <option value="Coding">Coding</option>
+                <option value="Reading">Reading</option>
+                <option value="Gym">Gym</option>
+                <option value="Meditation">Meditation</option>
+                <option value="Yoga">Yoga</option>
+                <option value="Running">Running</option>
+                <option value="Walking">Walking</option>
+                <option value="Study">Study</option>
+                <option value="Water">Water</option>
+                <option value="Sleep">Sleep</option>
+                <option value="Custom">Custom</option>
+              </select>
+            </div>
+            <div class="row g-3 mb-3">
+              <div class="col-6">
+                <label class="form-label fw-semibold">Priority</label>
+                <select id="habitPriority" class="form-select">
+                  <option value="HIGH">High</option>
+                  <option value="MEDIUM" selected>Medium</option>
+                  <option value="LOW">Low</option>
+                </select>
+              </div>
+              <div class="col-6">
+                <label class="form-label fw-semibold">Frequency</label>
+                <select id="habitFrequency" class="form-select">
+                  <option value="DAILY">Daily</option>
+                  <option value="WEEKLY">Weekly</option>
+                  <option value="MONTHLY">Monthly</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary-custom w-100">Save Habit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="js/app.js"></script>
+  <script>
+    let habitsList = getCached('habits', MockData.habits);
+
+    function renderHabits(items) {
+      const container = document.getElementById('habitsContainer');
+      container.innerHTML = '';
+
+      if (!items || items.length === 0) {
+        container.innerHTML = '<div class="col-12 text-center text-muted py-5">No habits found. Click "Add New Habit" to create one!</div>';
+        return;
+      }
+
+      items.forEach(h => {
+        const col = document.createElement('div');
+        col.className = 'col-md-6 col-lg-4';
+        col.innerHTML = `
+          <div class="glass-card p-4 h-100 d-flex flex-column justify-content-between">
+            <div>
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <span class="badge bg-primary-subtle text-primary fw-semibold">${h.category}</span>
+                <span class="badge ${h.priority === 'HIGH' ? 'bg-danger-subtle text-danger' : 'bg-warning-subtle text-warning'}">${h.priority}</span>
+              </div>
+              <h5 class="fw-bold mb-1">${h.title}</h5>
+              <div class="d-flex align-items-center gap-2 my-2 text-warning font-semibold">
+                <i class="fas fa-fire"></i> ${h.currentStreak} Day Streak
+              </div>
+            </div>
+            
+            <div class="d-flex align-items-center justify-content-between mt-3 pt-3 border-top">
+              <button class="btn btn-sm ${h.completed ? 'btn-success' : 'btn-outline-success'}" onclick="toggleComplete(${h.id})">
+                <i class="fas ${h.completed ? 'fa-check-circle' : 'fa-circle'} me-1"></i> ${h.completed ? 'Done' : 'Mark Done'}
+              </button>
+              <button class="btn btn-sm btn-outline-warning" onclick="skipHabit(${h.id})">Skip</button>
+              <button class="btn btn-sm btn-outline-danger" onclick="deleteHabit(${h.id})"><i class="fas fa-trash"></i></button>
+            </div>
+          </div>
+        `;
+        container.appendChild(col);
+      });
+    }
+
+    function filterHabits() {
+      const search = document.getElementById('habitSearch').value.toLowerCase();
+      const cat = document.getElementById('categoryFilter').value;
+      const prio = document.getElementById('priorityFilter').value;
+
+      let filtered = habitsList.filter(h => {
+        const matchSearch = h.title.toLowerCase().includes(search);
+        const matchCat = cat === 'ALL' || h.category === cat;
+        const matchPrio = prio === 'ALL' || h.priority === prio;
+        return matchSearch && matchCat && matchPrio;
+      });
+
+      renderHabits(filtered);
+    }
+
+    function toggleComplete(id) {
+      const habit = habitsList.find(h => h.id === id);
+      if (habit) {
+        habit.completed = !habit.completed;
+        if (habit.completed) habit.currentStreak += 1;
+        setCached('habits', habitsList);
+        filterHabits();
+        showToast(habit.completed ? 'Habit marked as completed (+20 XP)' : 'Habit status reset');
+      }
+    }
+
+    function skipHabit(id) {
+      showToast('Habit skipped for today', 'info');
+    }
+
+    function deleteHabit(id) {
+      habitsList = habitsList.filter(h => h.id !== id);
+      setCached('habits', habitsList);
+      filterHabits();
+      showToast('Habit deleted', 'warning');
+    }
+
+    function saveHabit(e) {
+      e.preventDefault();
+      const title = document.getElementById('habitTitle').value;
+      const category = document.getElementById('habitCategory').value;
+      const priority = document.getElementById('habitPriority').value;
+
+      const newHabit = {
+        id: Date.now(),
+        title,
+        category,
+        priority,
+        currentStreak: 0,
+        completed: false
+      };
+
+      habitsList.push(newHabit);
+      setCached('habits', habitsList);
+      filterHabits();
+      bootstrap.Modal.getInstance(document.getElementById('habitModal')).hide();
+      showToast('New Habit Created Successfully!');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => filterHabits());
+  </script>
+</body>
+</html>

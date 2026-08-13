@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Community & Gamification | LifeSync</title>
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg lifesync-nav py-2">
+    <div class="container-fluid px-4">
+      <a class="navbar-brand nav-brand-logo d-flex align-items-center gap-2" href="dashboard.html">
+        <i class="fas fa-heart-pulse text-danger"></i> LifeSync
+      </a>
+      <div class="d-flex align-items-center gap-3 ms-auto">
+        <button class="btn btn-sm theme-toggle-btn p-2"><i class="fas fa-moon"></i></button>
+        <span class="user-name-text fw-semibold">John Doe</span>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid px-4 py-4">
+    <div class="row g-4">
+      
+      <!-- Sidebar -->
+      <div class="col-lg-2">
+        <div class="glass-card p-3 sticky-top" style="top: 80px;">
+          <div class="nav flex-column nav-pills gap-1">
+            <a class="nav-link" href="dashboard.html"><i class="fas fa-th-large me-2"></i> Dashboard</a>
+            <a class="nav-link" href="habits.html"><i class="fas fa-check-circle me-2"></i> Habits</a>
+            <a class="nav-link" href="wellness.html"><i class="fas fa-heartbeat me-2"></i> Wellness</a>
+            <a class="nav-link" href="sleep.html"><i class="fas fa-moon me-2"></i> Sleep</a>
+            <a class="nav-link" href="exercise.html"><i class="fas fa-running me-2"></i> Exercise</a>
+            <a class="nav-link" href="meals.html"><i class="fas fa-utensils me-2"></i> Meals</a>
+            <a class="nav-link" href="mood.html"><i class="fas fa-smile me-2"></i> Mood</a>
+            <a class="nav-link" href="goals.html"><i class="fas fa-bullseye me-2"></i> Goals</a>
+            <a class="nav-link" href="reports.html"><i class="fas fa-file-alt me-2"></i> Reports</a>
+            <a class="nav-link" href="calendar.html"><i class="fas fa-calendar-alt me-2"></i> Calendar</a>
+            <a class="nav-link active" href="community.html"><i class="fas fa-users me-2"></i> Community</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="col-lg-10">
+        
+        <h3 class="fw-bold mb-1">Community Feed & Gamification Hub</h3>
+        <p class="text-muted mb-4">Share progress, unlock achievement badges, complete challenges, and lead the global board.</p>
+
+        <!-- Achievements & Badges Showcase -->
+        <h5 class="fw-bold mb-3"><i class="fas fa-award text-warning me-2"></i> Unlocked Achievements</h5>
+        <div class="row g-3 mb-4">
+          <div class="col-md-2 col-4">
+            <div class="badge-item-card">
+              <div class="badge-icon-circle"><i class="fas fa-fire"></i></div>
+              <h6 class="fw-bold mb-0">7-Day Streak</h6>
+              <small class="text-muted">+100 XP</small>
+            </div>
+          </div>
+          <div class="col-md-2 col-4">
+            <div class="badge-item-card">
+              <div class="badge-icon-circle"><i class="fas fa-glass-water"></i></div>
+              <h6 class="fw-bold mb-0">Water Master</h6>
+              <small class="text-muted">+150 XP</small>
+            </div>
+          </div>
+          <div class="col-md-2 col-4">
+            <div class="badge-item-card" style="opacity: 0.6;">
+              <div class="badge-icon-circle bg-secondary"><i class="fas fa-moon"></i></div>
+              <h6 class="fw-bold mb-0">Sleep Champion</h6>
+              <small class="text-muted">Locked</small>
+            </div>
+          </div>
+          <div class="col-md-2 col-4">
+            <div class="badge-item-card" style="opacity: 0.6;">
+              <div class="badge-icon-circle bg-secondary"><i class="fas fa-dumbbell"></i></div>
+              <h6 class="fw-bold mb-0">Fitness Hero</h6>
+              <small class="text-muted">Locked</small>
+            </div>
+          </div>
+          <div class="col-md-2 col-4">
+            <div class="badge-item-card" style="opacity: 0.6;">
+              <div class="badge-icon-circle bg-secondary"><i class="fas fa-bolt"></i></div>
+              <h6 class="fw-bold mb-0">30-Day Streak</h6>
+              <small class="text-muted">Locked</small>
+            </div>
+          </div>
+          <div class="col-md-2 col-4">
+            <div class="badge-item-card" style="opacity: 0.6;">
+              <div class="badge-icon-circle bg-secondary"><i class="fas fa-crown"></i></div>
+              <h6 class="fw-bold mb-0">Habit King</h6>
+              <small class="text-muted">Locked</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <!-- Feed Section -->
+          <div class="col-lg-7">
+            <div class="glass-card p-4 mb-4">
+              <h5 class="fw-bold mb-3">Share Progress with Community</h5>
+              <form id="postForm" onsubmit="createPost(event)">
+                <textarea id="postContent" class="form-control mb-3" rows="3" placeholder="Share your daily workout victory or habit streak! #LifeSync" required></textarea>
+                <button type="submit" class="btn btn-primary-custom float-end"><i class="fas fa-paper-plane me-1"></i> Post Update</button>
+                <div class="clearfix"></div>
+              </form>
+            </div>
+
+            <div id="postsList">
+              <div class="glass-card p-4 mb-3">
+                <div class="d-flex align-items-center gap-3 mb-3">
+                  <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=250&q=80" class="rounded-circle" width="42" height="42" alt="User">
+                  <div>
+                    <h6 class="fw-bold mb-0">John Doe</h6>
+                    <small class="text-muted">2 hours ago</small>
+                  </div>
+                </div>
+                <p>Just completed a 10-day streak on my morning workouts! Consistency is key 💪⚡ #LifeSync #FitnessGoal</p>
+                <div class="d-flex align-items-center gap-3 pt-2 border-top">
+                  <button class="btn btn-sm btn-link text-decoration-none text-muted p-0" onclick="likePost(this)"><i class="far fa-heart text-danger me-1"></i> <span class="likes-cnt">12</span> Likes</button>
+                  <button class="btn btn-sm btn-link text-decoration-none text-muted p-0"><i class="far fa-comment me-1"></i> 3 Comments</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Leaderboard Side -->
+          <div class="col-lg-5">
+            <div class="glass-card p-4">
+              <h5 class="fw-bold mb-3"><i class="fas fa-trophy text-warning me-2"></i> Global XP Leaderboard</h5>
+              
+              <div class="space-y-3">
+                <div class="d-flex justify-content-between align-items-center p-3 border rounded-3 bg-body-tertiary mb-2">
+                  <div class="d-flex align-items-center gap-3">
+                    <span class="fw-bold fs-5 text-warning">🥇 #1</span>
+                    <div>
+                      <h6 class="fw-bold mb-0">Sarah Jenkins</h6>
+                      <small class="text-muted">Level 8</small>
+                    </div>
+                  </div>
+                  <span class="badge bg-warning text-dark font-monospace fs-6">2,450 XP</span>
+                </div>
+
+                <div class="d-flex justify-content-between align-items-center p-3 border rounded-3 bg-body-tertiary mb-2">
+                  <div class="d-flex align-items-center gap-3">
+                    <span class="fw-bold fs-5 text-secondary">🥈 #2</span>
+                    <div>
+                      <h6 class="fw-bold mb-0">Alex Morgan</h6>
+                      <small class="text-muted">Level 6</small>
+                    </div>
+                  </div>
+                  <span class="badge bg-secondary font-monospace fs-6">1,820 XP</span>
+                </div>
+
+                <div class="d-flex justify-content-between align-items-center p-3 border rounded-3 bg-body-tertiary mb-2">
+                  <div class="d-flex align-items-center gap-3">
+                    <span class="fw-bold fs-5 text-danger">🥉 #3</span>
+                    <div>
+                      <h6 class="fw-bold mb-0">John Doe (You)</h6>
+                      <small class="text-muted">Level 3</small>
+                    </div>
+                  </div>
+                  <span class="badge bg-primary font-monospace fs-6">480 XP</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="js/app.js"></script>
+  <script>
+    function createPost(e) {
+      e.preventDefault();
+      const txt = document.getElementById('postContent').value;
+      const card = document.createElement('div');
+      card.className = 'glass-card p-4 mb-3';
+      card.innerHTML = `
+        <div class="d-flex align-items-center gap-3 mb-3">
+          <img src="${LifeSyncState.user.avatarUrl}" class="rounded-circle" width="42" height="42" alt="User">
+          <div>
+            <h6 class="fw-bold mb-0">${LifeSyncState.user.fullName}</h6>
+            <small class="text-muted">Just now</small>
+          </div>
+        </div>
+        <p>${txt}</p>
+        <div class="d-flex align-items-center gap-3 pt-2 border-top">
+          <button class="btn btn-sm btn-link text-decoration-none text-muted p-0" onclick="likePost(this)"><i class="far fa-heart text-danger me-1"></i> <span class="likes-cnt">0</span> Likes</button>
+        </div>
+      `;
+      document.getElementById('postsList').prepend(card);
+      document.getElementById('postContent').value = '';
+      showToast('Post published to motivation feed!');
+    }
+
+    function likePost(btn) {
+      const cnt = btn.querySelector('.likes-cnt');
+      cnt.textContent = parseInt(cnt.textContent) + 1;
+      btn.querySelector('i').className = 'fas fa-heart text-danger me-1';
+    }
+  </script>
+</body>
+</html>

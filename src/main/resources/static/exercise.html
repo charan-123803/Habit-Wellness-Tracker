@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise Tracker | LifeSync</title>
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg lifesync-nav py-2">
+    <div class="container-fluid px-4">
+      <a class="navbar-brand nav-brand-logo d-flex align-items-center gap-2" href="dashboard.html">
+        <i class="fas fa-heart-pulse text-danger"></i> LifeSync
+      </a>
+      <div class="d-flex align-items-center gap-3 ms-auto">
+        <button class="btn btn-sm theme-toggle-btn p-2"><i class="fas fa-moon"></i></button>
+        <span class="user-name-text fw-semibold">John Doe</span>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid px-4 py-4">
+    <div class="row g-4">
+      
+      <!-- Sidebar -->
+      <div class="col-lg-2">
+        <div class="glass-card p-3 sticky-top" style="top: 80px;">
+          <div class="nav flex-column nav-pills gap-1">
+            <a class="nav-link" href="dashboard.html"><i class="fas fa-th-large me-2"></i> Dashboard</a>
+            <a class="nav-link" href="habits.html"><i class="fas fa-check-circle me-2"></i> Habits</a>
+            <a class="nav-link" href="wellness.html"><i class="fas fa-heartbeat me-2"></i> Wellness</a>
+            <a class="nav-link" href="sleep.html"><i class="fas fa-moon me-2"></i> Sleep</a>
+            <a class="nav-link active" href="exercise.html"><i class="fas fa-running me-2"></i> Exercise</a>
+            <a class="nav-link" href="meals.html"><i class="fas fa-utensils me-2"></i> Meals</a>
+            <a class="nav-link" href="mood.html"><i class="fas fa-smile me-2"></i> Mood</a>
+            <a class="nav-link" href="goals.html"><i class="fas fa-bullseye me-2"></i> Goals</a>
+            <a class="nav-link" href="reports.html"><i class="fas fa-file-alt me-2"></i> Reports</a>
+            <a class="nav-link" href="calendar.html"><i class="fas fa-calendar-alt me-2"></i> Calendar</a>
+            <a class="nav-link" href="community.html"><i class="fas fa-users me-2"></i> Community</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="col-lg-10">
+        
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <div>
+            <h3 class="fw-bold mb-1">Workout & Exercise Logger</h3>
+            <p class="text-muted mb-0">Record physical activities, distance, duration, and calories burned.</p>
+          </div>
+          <button class="btn btn-primary-custom" data-bs-toggle="modal" data-bs-target="#exerciseModal">
+            <i class="fas fa-plus me-2"></i> Log New Workout
+          </button>
+        </div>
+
+        <div class="row g-4">
+          
+          <div class="col-md-4">
+            <div class="glass-card p-4 text-center">
+              <div class="stat-card-icon icon-indigo mx-auto mb-2"><i class="fas fa-dumbbell"></i></div>
+              <small class="text-muted">Total Workouts</small>
+              <h3 class="fw-bold mb-0">24 Sessions</h3>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="glass-card p-4 text-center">
+              <div class="stat-card-icon icon-pink mx-auto mb-2"><i class="fas fa-fire"></i></div>
+              <small class="text-muted">Total Calories Burned</small>
+              <h3 class="fw-bold mb-0 text-danger">6,420 kcal</h3>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="glass-card p-4 text-center">
+              <div class="stat-card-icon icon-cyan mx-auto mb-2"><i class="fas fa-route"></i></div>
+              <small class="text-muted">Total Distance</small>
+              <h3 class="fw-bold mb-0 text-cyan">48.5 km</h3>
+            </div>
+          </div>
+
+          <!-- Exercise Log Table -->
+          <div class="col-12">
+            <div class="glass-card p-4">
+              <h5 class="fw-bold mb-3">Recent Workout History</h5>
+              <div class="table-responsive">
+                <table class="table table-hover align-middle">
+                  <thead>
+                    <tr>
+                      <th>Activity Type</th>
+                      <th>Duration</th>
+                      <th>Calories Burned</th>
+                      <th>Distance (km)</th>
+                      <th>Avg Speed (km/h)</th>
+                      <th>Heart Rate</th>
+                      <th>Date</th>
+                    </tr>
+                  </thead>
+                  <tbody id="exerciseTableBody">
+                    <tr>
+                      <td><span class="badge bg-primary-subtle text-primary fs-6"><i class="fas fa-running me-2"></i> Running</span></td>
+                      <td>35 mins</td>
+                      <td class="fw-bold text-danger">320 kcal</td>
+                      <td>5.2 km</td>
+                      <td>8.9 km/h</td>
+                      <td>142 bpm</td>
+                      <td class="text-muted">Today</td>
+                    </tr>
+                    <tr>
+                      <td><span class="badge bg-success-subtle text-success fs-6"><i class="fas fa-spa me-2"></i> Yoga</span></td>
+                      <td>25 mins</td>
+                      <td class="fw-bold text-danger">110 kcal</td>
+                      <td>-</td>
+                      <td>-</td>
+                      <td>98 bpm</td>
+                      <td class="text-muted">Yesterday</td>
+                    </tr>
+                    <tr>
+                      <td><span class="badge bg-warning-subtle text-warning fs-6"><i class="fas fa-biking me-2"></i> Cycling</span></td>
+                      <td>45 mins</td>
+                      <td class="fw-bold text-danger">410 kcal</td>
+                      <td>12.4 km</td>
+                      <td>16.5 km/h</td>
+                      <td>135 bpm</td>
+                      <td class="text-muted">3 days ago</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Log Exercise Modal -->
+  <div class="modal fade" id="exerciseModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content glass-card border-0">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold">Log Workout Activity</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form id="exerciseForm" onsubmit="saveExercise(event)">
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Activity Type</label>
+              <select id="exType" class="form-select" required>
+                <option value="Walking">Walking</option>
+                <option value="Running" selected>Running</option>
+                <option value="Cycling">Cycling</option>
+                <option value="Gym">Gym / Weightlifting</option>
+                <option value="Yoga">Yoga</option>
+                <option value="Swimming">Swimming</option>
+                <option value="Stretching">Stretching</option>
+              </select>
+            </div>
+            <div class="row g-3 mb-3">
+              <div class="col-6">
+                <label class="form-label fw-semibold">Duration (mins)</label>
+                <input type="number" id="exDuration" class="form-control" value="30" required>
+              </div>
+              <div class="col-6">
+                <label class="form-label fw-semibold">Calories Burned</label>
+                <input type="number" id="exCalories" class="form-control" value="250" required>
+              </div>
+              <div class="col-6">
+                <label class="form-label fw-semibold">Distance (km)</label>
+                <input type="number" id="exDistance" class="form-control" value="4.0" step="0.1">
+              </div>
+              <div class="col-6">
+                <label class="form-label fw-semibold">Heart Rate (bpm)</label>
+                <input type="number" id="exHeartRate" class="form-control" value="130">
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary-custom w-100">Save Workout (+25 XP)</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="js/app.js"></script>
+  <script>
+    function saveExercise(e) {
+      e.preventDefault();
+      const type = document.getElementById('exType').value;
+      const duration = document.getElementById('exDuration').value;
+      const calories = document.getElementById('exCalories').value;
+      const distance = document.getElementById('exDistance').value;
+      const hr = document.getElementById('exHeartRate').value;
+
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td><span class="badge bg-primary-subtle text-primary fs-6"><i class="fas fa-dumbbell me-2"></i> ${type}</span></td>
+        <td>${duration} mins</td>
+        <td class="fw-bold text-danger">${calories} kcal</td>
+        <td>${distance ? distance + ' km' : '-'}</td>
+        <td>-</td>
+        <td>${hr ? hr + ' bpm' : '-'}</td>
+        <td class="text-muted">Just Now</td>
+      `;
+      document.getElementById('exerciseTableBody').prepend(row);
+      bootstrap.Modal.getInstance(document.getElementById('exerciseModal')).hide();
+      showToast('Workout logged! Earned 25 XP 🏋️‍♂️');
+    }
+  </script>
+</body>
+</html>

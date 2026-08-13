@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LifeSync – Habit & Wellness Tracker | Build Better Habits</title>
+  <meta name="description" content="LifeSync helps you track habits, physical wellness, sleep, nutrition, exercise, mood, and daily goals with gamified insights.">
+  
+  <!-- CSS Dependencies -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg lifesync-nav py-3">
+    <div class="container">
+      <a class="navbar-brand nav-brand-logo d-flex align-items-center gap-2" href="index.html">
+        <i class="fas fa-heart-pulse text-danger"></i> LifeSync
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navContent">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+          <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+
+        <div class="d-flex align-items-center gap-3">
+          <button class="btn btn-sm btn-link theme-toggle-btn text-decoration-none p-2" title="Toggle Theme">
+            <i class="fas fa-moon"></i>
+          </button>
+          <a href="login.html" class="btn btn-outline-custom">Sign In</a>
+          <a href="register.html" class="btn btn-primary-custom">Get Started Free</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section text-center text-lg-start">
+    <div class="container">
+      <div class="row align-items-center gy-5">
+        <div class="col-lg-6" data-aos="fade-right">
+          <span class="badge bg-primary-subtle text-primary fw-semibold px-3 py-2 rounded-pill mb-3">
+            <i class="fas fa-sparkles me-1"></i> Next-Gen Habit & Wellness AI Platform
+          </span>
+          <h1 class="hero-title">
+            Build Better Habits. <br><span class="gradient-text">Live Healthier Every Day.</span>
+          </h1>
+          <p class="hero-subtitle">
+            LifeSync combines habit tracking, physical vitals, sleep analysis, meal macros, mood journaling, and gamification into one seamless glassmorphic dashboard.
+          </p>
+          <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start">
+            <a href="register.html" class="btn btn-primary-custom btn-lg">
+              Start Free Trial <i class="fas fa-arrow-right ms-2"></i>
+            </a>
+            <a href="dashboard.html" class="btn btn-outline-custom btn-lg">
+              Explore Live Demo
+            </a>
+          </div>
+          <div class="d-flex align-items-center gap-4 mt-4 pt-2">
+            <div><h4 class="mb-0 text-primary">50,000+</h4><small class="text-muted">Active Trackers</small></div>
+            <div class="border-start ps-4"><h4 class="mb-0 text-success">98.4%</h4><small class="text-muted">Habit Completion</small></div>
+            <div class="border-start ps-4"><h4 class="mb-0 text-warning">4.9 ★</h4><small class="text-muted">User Rating</small></div>
+          </div>
+        </div>
+
+        <div class="col-lg-6" data-aos="fade-left">
+          <div class="glass-card p-4 position-relative">
+            <div class="d-flex align-items-center justify-content-between mb-4">
+              <h5 class="mb-0"><i class="fas fa-chart-line text-primary me-2"></i> Today's LifeSync Score</h5>
+              <span class="badge bg-success-subtle text-success px-3 py-1 rounded-pill">Optimal Level 3</span>
+            </div>
+            
+            <div class="row g-3">
+              <div class="col-6">
+                <div class="p-3 border rounded-3 bg-body-tertiary">
+                  <div class="d-flex justify-content-between text-muted small mb-1"><span>Water Intake</span><span>2,500 / 3,000ml</span></div>
+                  <div class="progress progress-custom"><div class="progress-bar progress-bar-gradient" style="width: 83%"></div></div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="p-3 border rounded-3 bg-body-tertiary">
+                  <div class="d-flex justify-content-between text-muted small mb-1"><span>Daily Habits</span><span>4 of 5 Done</span></div>
+                  <div class="progress progress-custom"><div class="progress-bar bg-success" style="width: 80%"></div></div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="p-3 border rounded-3 bg-body-tertiary">
+                  <div class="d-flex justify-content-between text-muted small mb-1"><span>Sleep Duration</span><span>8.0 hrs</span></div>
+                  <div class="progress progress-custom"><div class="progress-bar bg-purple" style="width: 100%; background: #8b5cf6;"></div></div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="p-3 border rounded-3 bg-body-tertiary">
+                  <div class="d-flex justify-content-between text-muted small mb-1"><span>Active Calories</span><span>480 kcal</span></div>
+                  <div class="progress progress-custom"><div class="progress-bar bg-danger" style="width: 75%"></div></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4 p-3 bg-primary-subtle text-primary rounded-3 d-flex align-items-center gap-3">
+              <i class="fas fa-robot fa-2x"></i>
+              <div>
+                <strong class="d-block">AI Wellness Coach Recommendation</strong>
+                <small>You're on a 5-day streak! Drink 1 glass of water before 4 PM to hit your daily goal.</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="py-5">
+    <div class="container py-4">
+      <div class="text-center max-w-700 mx-auto mb-5" data-aos="fade-up">
+        <span class="text-primary font-monospace text-uppercase fw-bold">All-In-One Tracking</span>
+        <h2 class="mt-2 display-6 fw-bold">Everything You Need for Total Wellness</h2>
+        <p class="text-muted">Seamlessly integrate habits, exercise, meals, sleep, and emotional health into daily routine.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="glass-card p-4 h-100">
+            <div class="stat-card-icon icon-indigo mb-3"><i class="fas fa-check-double"></i></div>
+            <h4>Smart Habit Engine</h4>
+            <p class="text-muted">Create custom daily, weekly, or monthly habits with priority tagging, category filters, and streak counters.</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="glass-card p-4 h-100">
+            <div class="stat-card-icon icon-teal mb-3"><i class="fas fa-heartbeat"></i></div>
+            <h4>Vitals & BMI Tracker</h4>
+            <p class="text-muted">Monitor blood pressure, heart rate, oxygen levels, blood sugar, steps, weight, and automatically calculated BMI.</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="glass-card p-4 h-100">
+            <div class="stat-card-icon icon-cyan mb-3"><i class="fas fa-glass-water"></i></div>
+            <h4>Hydration Reminders</h4>
+            <p class="text-muted">Interactive glass counter with daily target rings, browser notifications, and hydration trend graphs.</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+          <div class="glass-card p-4 h-100">
+            <div class="stat-card-icon icon-amber mb-3"><i class="fas fa-moon"></i></div>
+            <h4>Sleep Cycle Analytics</h4>
+            <p class="text-muted">Log sleep/wake times, track deep vs light sleep stages, and optimize sleep quality scores.</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="500">
+          <div class="glass-card p-4 h-100">
+            <div class="stat-card-icon icon-pink mb-3"><i class="fas fa-utensils"></i></div>
+            <h4>Meal Macro Tracker</h4>
+            <p class="text-muted">Track Breakfast, Lunch, Dinner, and Snacks. Monitor calories, protein, carbohydrates, fats, and fiber.</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="600">
+          <div class="glass-card p-4 h-100">
+            <div class="stat-card-icon icon-purple mb-3"><i class="fas fa-trophy"></i></div>
+            <h4>Gamification & XP</h4>
+            <p class="text-muted">Earn XP points, level up, unlock achievement badges (Water Master, Sleep Champion), and compete on leaderboards.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="py-5 bg-body-tertiary">
+    <div class="container py-4">
+      <div class="text-center max-w-700 mx-auto mb-5" data-aos="fade-up">
+        <span class="text-primary font-monospace text-uppercase fw-bold">Simple Pricing</span>
+        <h2 class="mt-2 display-6 fw-bold">Invest in Your Daily Well-Being</h2>
+      </div>
+
+      <div class="row g-4 justify-content-center">
+        <div class="col-lg-4 col-md-6" data-aos="fade-up">
+          <div class="glass-card p-4 text-center h-100">
+            <h4 class="fw-bold">Starter</h4>
+            <div class="my-4"><span class="display-5 fw-bold">$0</span> <span class="text-muted">/ forever</span></div>
+            <ul class="list-unstyled text-start mb-4 space-y-2">
+              <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Track up to 5 Habits</li>
+              <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Basic Vitals & Water Logging</li>
+              <li class="mb-2"><i class="fas fa-check text-success me-2"></i> 7-Day Analytics History</li>
+              <li class="text-muted mb-2"><i class="fas fa-times text-danger me-2"></i> AI Coach Recommendations</li>
+            </ul>
+            <a href="register.html" class="btn btn-outline-custom w-100">Get Started</a>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="glass-card p-4 text-center h-100 border-primary position-relative overflow-hidden">
+            <span class="badge bg-primary position-absolute top-0 end-0 m-3">Popular</span>
+            <h4 class="fw-bold">Pro LifeSync</h4>
+            <div class="my-4"><span class="display-5 fw-bold">$9.99</span> <span class="text-muted">/ month</span></div>
+            <ul class="list-unstyled text-start mb-4 space-y-2">
+              <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Unlimited Habits & Goals</li>
+              <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Full Health, Sleep & Macro Suite</li>
+              <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Smart AI Coach Recommendations</li>
+              <li class="mb-2"><i class="fas fa-check text-success me-2"></i> PDF & CSV Data Reports</li>
+            </ul>
+            <a href="register.html" class="btn btn-primary-custom w-100">Start 14-Day Free Trial</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="py-5">
+    <div class="container py-4 max-w-800">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <h2 class="display-6 fw-bold">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="accordion accordion-flush glass-card p-3" id="faqAccordion">
+        <div class="accordion-item bg-transparent">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed bg-transparent text-body fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+              Can I run LifeSync locally with Java Spring Boot & MySQL?
+            </button>
+          </h2>
+          <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body text-muted">
+              Yes! LifeSync is packaged with Maven, Spring Boot 3, and dual database support for both H2 in-memory and MySQL database server with Docker support.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item bg-transparent">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed bg-transparent text-body fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+              How does the AI Coach generate recommendations?
+            </button>
+          </h2>
+          <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body text-muted">
+              The AI Coach algorithm analyzes your daily habit completion, sleep hours, water intake, and workout history to give actionable daily health tips.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-5 bg-body-tertiary">
+    <div class="container py-4 max-w-600">
+      <div class="glass-card p-5" data-aos="fade-up">
+        <h3 class="fw-bold mb-2 text-center">Get in Touch</h3>
+        <p class="text-muted text-center mb-4">Have questions or feedback? Send us a message.</p>
+
+        <form id="contactForm" onsubmit="event.preventDefault(); showToast('Message sent! We will respond shortly.');">
+          <div class="mb-3">
+            <label class="form-label font-semibold">Your Name</label>
+            <input type="text" class="form-control" placeholder="Alex Morgan" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label font-semibold">Email Address</label>
+            <input type="email" class="form-control" placeholder="alex@example.com" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label font-semibold">Message</label>
+            <textarea class="form-control" rows="4" placeholder="How can we help you?" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary-custom w-100">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="lifesync-footer">
+    <div class="container">
+      <div class="row g-4 mb-4">
+        <div class="col-lg-4">
+          <a class="nav-brand-logo mb-3 d-inline-block" href="#"><i class="fas fa-heart-pulse text-danger me-2"></i>LifeSync</a>
+          <p class="text-muted small">Build better habits and live healthier every day with integrated tracking, analytics, and gamification.</p>
+        </div>
+        <div class="col-lg-2 col-6">
+          <h6 class="fw-bold mb-3">Product</h6>
+          <ul class="list-unstyled text-muted small space-y-2">
+            <li><a href="dashboard.html" class="text-decoration-none text-muted">Dashboard</a></li>
+            <li><a href="habits.html" class="text-decoration-none text-muted">Habits</a></li>
+            <li><a href="wellness.html" class="text-decoration-none text-muted">Wellness</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-6">
+          <h6 class="fw-bold mb-3">Resources</h6>
+          <ul class="list-unstyled text-muted small space-y-2">
+            <li><a href="reports.html" class="text-decoration-none text-muted">Reports</a></li>
+            <li><a href="community.html" class="text-decoration-none text-muted">Community</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <h6 class="fw-bold mb-3">Stay Connected</h6>
+          <div class="d-flex gap-3 text-primary fs-5">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="border-top pt-3 text-center text-muted small">
+        &copy; 2026 LifeSync Habit & Wellness Tracker. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="js/app.js"></script>
+  <script>AOS.init({ duration: 800, once: true });</script>
+</body>
+</html>

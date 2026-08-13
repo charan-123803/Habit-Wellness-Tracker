@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meal & Macro Tracker | LifeSync</title>
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg lifesync-nav py-2">
+    <div class="container-fluid px-4">
+      <a class="navbar-brand nav-brand-logo d-flex align-items-center gap-2" href="dashboard.html">
+        <i class="fas fa-heart-pulse text-danger"></i> LifeSync
+      </a>
+      <div class="d-flex align-items-center gap-3 ms-auto">
+        <button class="btn btn-sm theme-toggle-btn p-2"><i class="fas fa-moon"></i></button>
+        <span class="user-name-text fw-semibold">John Doe</span>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid px-4 py-4">
+    <div class="row g-4">
+      
+      <!-- Sidebar -->
+      <div class="col-lg-2">
+        <div class="glass-card p-3 sticky-top" style="top: 80px;">
+          <div class="nav flex-column nav-pills gap-1">
+            <a class="nav-link" href="dashboard.html"><i class="fas fa-th-large me-2"></i> Dashboard</a>
+            <a class="nav-link" href="habits.html"><i class="fas fa-check-circle me-2"></i> Habits</a>
+            <a class="nav-link" href="wellness.html"><i class="fas fa-heartbeat me-2"></i> Wellness</a>
+            <a class="nav-link" href="sleep.html"><i class="fas fa-moon me-2"></i> Sleep</a>
+            <a class="nav-link" href="exercise.html"><i class="fas fa-running me-2"></i> Exercise</a>
+            <a class="nav-link active" href="meals.html"><i class="fas fa-utensils me-2"></i> Meals</a>
+            <a class="nav-link" href="mood.html"><i class="fas fa-smile me-2"></i> Mood</a>
+            <a class="nav-link" href="goals.html"><i class="fas fa-bullseye me-2"></i> Goals</a>
+            <a class="nav-link" href="reports.html"><i class="fas fa-file-alt me-2"></i> Reports</a>
+            <a class="nav-link" href="calendar.html"><i class="fas fa-calendar-alt me-2"></i> Calendar</a>
+            <a class="nav-link" href="community.html"><i class="fas fa-users me-2"></i> Community</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="col-lg-10">
+        
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <div>
+            <h3 class="fw-bold mb-1">Meal & Nutrition Tracker</h3>
+            <p class="text-muted mb-0">Track Breakfast, Lunch, Dinner, Snacks and macronutrient balance.</p>
+          </div>
+          <button class="btn btn-primary-custom" data-bs-toggle="modal" data-bs-target="#mealModal">
+            <i class="fas fa-plus me-2"></i> Log Meal
+          </button>
+        </div>
+
+        <!-- Macro Summary Progress Bars -->
+        <div class="glass-card p-4 mb-4">
+          <h5 class="fw-bold mb-3"><i class="fas fa-pie-chart text-primary me-2"></i> Today's Macro Goals</h5>
+          <div class="row g-4">
+            <div class="col-md-3">
+              <div class="d-flex justify-content-between small text-muted mb-1"><span>Calories</span><span>1,850 / 2,200 kcal</span></div>
+              <div class="progress progress-custom"><div class="progress-bar bg-danger" style="width: 84%"></div></div>
+            </div>
+            <div class="col-md-3">
+              <div class="d-flex justify-content-between small text-muted mb-1"><span>Protein</span><span>120 / 140 g</span></div>
+              <div class="progress progress-custom"><div class="progress-bar bg-primary" style="width: 85%"></div></div>
+            </div>
+            <div class="col-md-3">
+              <div class="d-flex justify-content-between small text-muted mb-1"><span>Carbohydrates</span><span>195 / 250 g</span></div>
+              <div class="progress progress-custom"><div class="progress-bar bg-warning" style="width: 78%"></div></div>
+            </div>
+            <div class="col-md-3">
+              <div class="d-flex justify-content-between small text-muted mb-1"><span>Fats</span><span>52 / 65 g</span></div>
+              <div class="progress progress-custom"><div class="progress-bar bg-info" style="width: 80%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <!-- Meal Categories -->
+          <div class="col-md-6">
+            <div class="glass-card p-4">
+              <h5 class="fw-bold mb-3">🌅 Breakfast</h5>
+              <div class="p-3 border rounded-3 mb-2 bg-body-tertiary d-flex justify-content-between align-items-center">
+                <div>
+                  <h6 class="fw-bold mb-0">Oatmeal & Berry Protein Bowl</h6>
+                  <small class="text-muted">32g P • 55g C • 8g F</small>
+                </div>
+                <span class="badge bg-danger fs-6">420 kcal</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="glass-card p-4">
+              <h5 class="fw-bold mb-3">☀️ Lunch</h5>
+              <div class="p-3 border rounded-3 mb-2 bg-body-tertiary d-flex justify-content-between align-items-center">
+                <div>
+                  <h6 class="fw-bold mb-0">Grilled Chicken Salad with Avocado</h6>
+                  <small class="text-muted">45g P • 20g C • 22g F</small>
+                </div>
+                <span class="badge bg-danger fs-6">550 kcal</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="glass-card p-4">
+              <h5 class="fw-bold mb-3">🌙 Dinner</h5>
+              <div class="p-3 border rounded-3 mb-2 bg-body-tertiary d-flex justify-content-between align-items-center">
+                <div>
+                  <h6 class="fw-bold mb-0">Salmon with Quinoa & Asparagus</h6>
+                  <small class="text-muted">38g P • 40g C • 18g F</small>
+                </div>
+                <span class="badge bg-danger fs-6">620 kcal</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="glass-card p-4">
+              <h5 class="fw-bold mb-3">🍎 Snacks</h5>
+              <div class="p-3 border rounded-3 mb-2 bg-body-tertiary d-flex justify-content-between align-items-center">
+                <div>
+                  <h6 class="fw-bold mb-0">Greek Yogurt & Almonds</h6>
+                  <small class="text-muted">15g P • 10g C • 8g F</small>
+                </div>
+                <span class="badge bg-danger fs-6">260 kcal</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Log Meal Modal -->
+  <div class="modal fade" id="mealModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content glass-card border-0">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold">Log Meal & Nutrition</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form id="mealForm" onsubmit="saveMeal(event)">
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Meal Type</label>
+              <select id="mealType" class="form-select" required>
+                <option value="BREAKFAST">Breakfast</option>
+                <option value="LUNCH" selected>Lunch</option>
+                <option value="DINNER">Dinner</option>
+                <option value="SNACK">Snacks</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Food Name</label>
+              <input type="text" id="foodName" class="form-control" placeholder="e.g. Turkey Wrap" required>
+            </div>
+            <div class="row g-3 mb-3">
+              <div class="col-6">
+                <label class="form-label fw-semibold">Calories (kcal)</label>
+                <input type="number" id="mealCalories" class="form-control" value="450" required>
+              </div>
+              <div class="col-6">
+                <label class="form-label fw-semibold">Protein (g)</label>
+                <input type="number" id="mealProtein" class="form-control" value="30">
+              </div>
+              <div class="col-6">
+                <label class="form-label fw-semibold">Carbs (g)</label>
+                <input type="number" id="mealCarbs" class="form-control" value="40">
+              </div>
+              <div class="col-6">
+                <label class="form-label fw-semibold">Fat (g)</label>
+                <input type="number" id="mealFat" class="form-control" value="12">
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary-custom w-100">Save Meal Log</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="js/app.js"></script>
+  <script>
+    function saveMeal(e) {
+      e.preventDefault();
+      bootstrap.Modal.getInstance(document.getElementById('mealModal')).hide();
+      showToast('Meal logged successfully!');
+    }
+  </script>
+</body>
+</html>
